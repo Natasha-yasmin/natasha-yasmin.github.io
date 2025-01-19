@@ -6,7 +6,6 @@
  
 
     body {
-      /* biome-ignore lint/correctness/noUnknownProperty: <explanation> */
       interpolate-size: allow-keywords;
     }
   
@@ -22,5 +21,10 @@
     p {
         text-wrap: pretty;
     }
-  
+    .unselectable {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+  }
   

@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
-
 export default {
   content: [
     './**/*.html',
@@ -12,6 +10,5 @@ export default {
   plugins: [
     require('@tailwindcss/typography'),
     require('daisyui'),
-
   ],
 };
