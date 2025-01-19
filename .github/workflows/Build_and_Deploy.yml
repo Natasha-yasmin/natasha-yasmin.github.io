@@ -16,14 +16,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Install pnpm first
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
           run_install: false
 
-      # Then setup Node.js with pnpm caching
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -31,7 +29,12 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          if [ -f "pnpm-lock.yaml" ]; then
+            pnpm install --frozen-lockfile
+          else
+            pnpm install
+          fi
 
       - name: Build the project
         run: pnpm build
